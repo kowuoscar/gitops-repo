@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: podinfo
 spec:
-  project: default
+  project: team-backend
   source:
     repoURL: https://github.com/kowuoscar/gitops-repo
     targetRevision: HEAD

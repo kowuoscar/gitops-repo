@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-backend
+  namespace: argocd
+spec:
+  description: Applications de l'équipe backend
+  sourceRepos:
+  - 'https://github.com/kowuoscar/*'
+  destinations:
+  - namespace: 'backend-*'
+    server: https://kubernetes.default.svc
+  - namespace: demo-api
+    server: https://kubernetes.default.svc
+  - namespace: podinfo
+    server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: ''
+    kind: Namespace
+  namespaceResourceWhitelist:
+  - group: 'apps'
+    kind: Deployment
+  - group: ''
+    kind: Service
+  - group: ''
+    kind: ConfigMap
