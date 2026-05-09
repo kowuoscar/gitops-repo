@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: podinfo
+  name: demo-api
   namespace: argocd
   labels:
-    app.kubernetes.io/name: podinfo
+    app.kubernetes.io/name: demo-api
 spec:
   project: default
   source:
     repoURL: https://github.com/kowuoscar/gitops-repo
     targetRevision: HEAD
-    path: manifests/podinfo
+    path: manifests/demo-api
   destination:
     server: https://kubernetes.default.svc
-    namespace: podinfo
+    namespace: demo-api
   syncPolicy:
     automated:
       prune: true
